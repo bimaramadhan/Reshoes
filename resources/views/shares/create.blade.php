@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('shares.store') }}">
+      <form method="post" action="{{ route('shares.store') }}" onSubmit="validasi()">
           <div class="form-group">
               @csrf
               <label for="name">Nama:</label>
@@ -53,6 +53,21 @@
           </div>
           <button type="submit" class="btn btn-primary">Add</button>
       </form>
+      <script type="text/javascript">
+        function validasi() {
+          var nama = document.getElementById("nama").value;
+          var email = document.getElementById("email").value;
+          var no_telepon = document.getElementById("no_telepon").value;
+          var alamat = document.getElementById("alamat").value;
+          var kategori = document.getElementById("kategori").value;
+          var jumlah = document.getElementById("jumlah").value;
+          if (nama != "" && email !="" && no_telepon !="" && alamat !="" && kategori !="" && jumlah !="") {
+            return true;
+          }else{
+            alert('Anda harus mengisi data dengan lengkap !');
+          }
+        }
+      </script>
   </div>
 </div>
 @endsection
